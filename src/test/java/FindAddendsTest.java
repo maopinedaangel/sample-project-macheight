@@ -33,69 +33,53 @@ public class FindAddendsTest {
     }
 
     @Test
-    @DisplayName("Two pairs of integers matches the target sum")
-    void findAddendsInOrderedListTest() {
+    @DisplayName("Even quantity of numbers, and two pairs of integers matching the target sum")
+    void findWithAnEvenNumberOfEntries() {
         /* Expected values */
         List<Pair> targetList = new ArrayList<Pair>();
         targetList.add(new Pair(-7, 23));
         targetList.add(new Pair(2, 14));
-        for (Pair p: targetList) {
-            System.out.println("Target: " + p.toString());
-        }
 
         /* Obtained values */
         TreeSet<Integer> testNumbers = new TreeSet<Integer>();
         Integer targetSum = 16;
-        fillSet(testNumbers, 8, 6, 12, 14, 2, 5, -7, 23, 9);
+        fillSet(testNumbers, 8, 6, 12, 14, 2, 5, -7, 23, 9, 3);
         List<Pair> testList = FindAddends.findAddendsInOrderedSet(testNumbers, targetSum);
-        for (Pair p: testList) {
-            System.out.println("Test: " + p.toString());
-        }
 
         /* Assertion */
-        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Pairs found matches");
+        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Check the lists have the same elements");
     }
 
     @Test
-    @DisplayName("Only one pair of number matches the desired result")
-    void oneOnlyResult() {
+    @DisplayName("Odd quantity of numbers and only one pair of number matches the desired result")
+    void findWithAnOddNumberOfEntries() {
         /* Expected values */
         List<Pair> targetList = new ArrayList<Pair>();
         targetList.add(new Pair(7, 9));
-        for (Pair p: targetList) {
-            System.out.println("Target: " + p.toString());
-        }
+
         /* Obtained values */
         TreeSet<Integer> testNumbers = new TreeSet<Integer>();
         Integer targetSum = 16;
         fillSet(testNumbers, 8, -6, 12, 14, -2, 5, 7, 23, 9);
         List<Pair> testList = FindAddends.findAddendsInOrderedSet(testNumbers, targetSum);
-        for (Pair p: testList) {
-            System.out.println("Test: " + p.toString());
-        }
 
         /* Assertion */
-        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Pairs found matches");
+        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Check the lists have the same elements");
     }
 
     @Test
-    @DisplayName("Add only odd numbers and try to obtain an even result")
+    @DisplayName("Add only odd numbers and try to obtain an even result. No pair of number matches the target.")
     void addOnlyOddNumersAndEvenTarget() {
-        /* Expected values */
+        /* Expected values (empty) */
         List<Pair> targetList = new ArrayList<Pair>();
-        for (Pair p: targetList) {
-            System.out.println("Target: " + p.toString());
-        }
+
         /* Obtained values */
         TreeSet<Integer> testNumbers = new TreeSet<Integer>();
         Integer targetSum = 15;
         fillSet(testNumbers, 8, -6, 12, 14, -2, 4, 8, 22, 10);
         List<Pair> testList = FindAddends.findAddendsInOrderedSet(testNumbers, targetSum);
-        for (Pair p: testList) {
-            System.out.println("Test: " + p.toString());
-        }
 
         /* Assertion */
-        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Pairs found matches");
+        Assertions.assertTrue(compareListOfPairs(targetList, testList), "Check the lists have the same elements");
     }
 }
