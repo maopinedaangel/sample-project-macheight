@@ -1,6 +1,6 @@
 # sample-project-macheight
 
-This a gradle project.
+This is a gradle project.
 You can open it in InteliiJ Idea, by importing the build.gradle file:
 1. In IntelliJ, go to the main menu y select File >> Project from Existing Sources...
 2. Navigate to the root directory and select the build.gradle file. IntelliJ will import the project.
